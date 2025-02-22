@@ -177,54 +177,6 @@
         </div>
     </div>
 
-    <script>
-        // Initialize EmailJS
-(function() {
-    emailjs.init("LdXTz6nMARriAwCy7");
-})();
-
-// Get current date in YYYY-MM-DD format
-const today = new Date().toISOString().split('T')[0];
-document.getElementById('date').min = today;
-
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Show loading state
-    const submitButton = this.querySelector('button[type="submit"]');
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        notes: document.getElementById('notes').value  // Changed from purpose to notes to match your HTML
-    };
-
-    // Send email using EmailJS
-    emailjs.send('service_aafk5az', 'template_amcb84d', formData)
-        .then(function(response) {
-            submitButton.textContent = 'Request Sent!';
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
-            document.getElementById('bookingForm').reset();
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitButton.textContent = 'Book Appointment';
-                submitButton.disabled = false;
-            }, 3000);
-        })
-        .catch(function(error) {
-            submitButton.textContent = 'Book Appointment';
-            submitButton.disabled = false;
-            document.getElementById('errorMessage').style.display = 'block';
-            document.getElementById('successMessage').style.display = 'none';
-            console.error('Error:', error);
-        });
-});
-    </script>
 </body>
+<script src="main.js"></script>
 </html>

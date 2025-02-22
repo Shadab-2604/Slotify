@@ -1,0 +1,13 @@
+{
+    "name": "slotify",
+    "version": "1.0.0",
+    "description": "Appointment booking system",
+    "main": "index.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "dotenv": "^16.4.1",
+      "express": "^4.18.2"
+    }
+  }
