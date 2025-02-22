@@ -4,7 +4,13 @@ const path = require('path');
 const app = express();
 
 // Serve static files
-app.use(express.static(path.join(__dirname)));
+// Serve static files (Frontend)
+app.use(express.static(path.join(__dirname, "public")));
+
+// Root route
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
 // Create endpoint to safely expose needed env variables
 app.get('/config', (req, res) => {
